@@ -23,9 +23,14 @@ class MainActivity : AppCompatActivity() {
 
     fun buttonFindAgeEvent(view: View){
         val viewl: View = view
-        var yearOfBirth = editTextYear.text.toString().toInt()
-        var yourAge = Calendar.getInstance().get(Calendar.YEAR) - yearOfBirth
-        textViewShowAge.text = "You are $yourAge years old"
+        var yearOfBirth:String = editTextYear.text.toString()
+        if(yearOfBirth == ""){
+            textViewShowAge.text = "Invalid input year"
+        }
+        else {
+            var yourAge = Calendar.getInstance().get(Calendar.YEAR) - yearOfBirth.toInt()
+            textViewShowAge.text = "You are $yourAge years old"
+        }
         viewl.hideKeyboard()
         }
 
